@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "328945498543",
+    "firebase_url": "https://cinecritiqueenigma.firebaseio.com",
+    "project_id": "cinecritiqueenigma",
+    "storage_bucket": "cinecritiqueenigma.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328945498543:android:6e259c8f876feeeb41d75a",
+        "android_client_info": {
+          "package_name": "com.example.cinecritiqueadriengrampone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328945498543-jnteq53tbhfmqmf8tq9kmqmm2gps0tm0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cinecritiqueadriengrampone",
+            "certificate_hash": "d81537d2f4729376a607c051d4806a661f438700"
+          }
+        },
+        {
+          "client_id": "328945498543-fpjviga6ge7p72jh7di1n40rkht152dl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxg7dqSgkx36I1xm_sLAMMgFQ19LICfJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328945498543-fpjviga6ge7p72jh7di1n40rkht152dl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

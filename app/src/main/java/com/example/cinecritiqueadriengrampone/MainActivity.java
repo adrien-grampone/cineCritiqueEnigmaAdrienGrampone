@@ -1,5 +1,6 @@
 package com.example.cinecritiqueadriengrampone;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +13,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "Main";
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
     Database myDb;
     EditText editTextTitre,editTextDateHeure,editTextScenar,editTextReal,editTextMusique,editTextCrit,editTextId;
     Button buttonV;
@@ -28,36 +38,89 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         myDb = new Database(this);
 
-        editTextTitre=(EditText)findViewById(R.id.editTextTitre);
-        editTextDateHeure=(EditText)findViewById(R.id.editTextDateHeure);
-        editTextScenar=(EditText)findViewById(R.id.editTextScenar);
-        editTextReal=(EditText)findViewById(R.id.editTextReal);
-        editTextMusique=(EditText)findViewById(R.id.editTextMusique);
-        editTextCrit=(EditText)findViewById(R.id.editTextCrit);
-        editTextId=(EditText)findViewById(R.id.editTextId);
-      //  buttonV=(Button)findViewById(R.id.buttonV);
-        buttonVoirDonnees=(Button)findViewById((R.id.buttonVoirDonnees));
-        buttonUp=(Button)findViewById(R.id.buttonUp);
-        buttonSupp=(Button)findViewById(R.id.buttonDelete);
-        buttonAjouter=(Button)findViewById(R.id.buttonAjouterDonnees);
+        editTextTitre = (EditText) findViewById(R.id.editTextTitre);
+        editTextDateHeure = (EditText) findViewById(R.id.editTextDateHeure);
+        editTextScenar = (EditText) findViewById(R.id.editTextScenar);
+        editTextReal = (EditText) findViewById(R.id.editTextReal);
+        editTextMusique = (EditText) findViewById(R.id.editTextMusique);
+        editTextCrit = (EditText) findViewById(R.id.editTextCrit);
+        editTextId = (EditText) findViewById(R.id.editTextId);
+        //  buttonV=(Button)findViewById(R.id.buttonV);
+        buttonVoirDonnees = (Button) findViewById((R.id.buttonVoirDonnees));
+        buttonUp = (Button) findViewById(R.id.buttonUp);
+        buttonSupp = (Button) findViewById(R.id.buttonDelete);
+        buttonAjouter = (Button) findViewById(R.id.buttonAjouterDonnees);
 
         buttonAjouter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent (MainActivity.this,ajoutDonnees.class);
+                Intent i = new Intent(MainActivity.this, ajoutDonnees.class);
                 startActivity(i);
             }
         });
-
 
 
         //AjouterDonnees();
         voirDonnees();
         ModifierDonnees();
         SupprimerDonnee();
+    }
+        /*senregistrer("projet@email.com","azertyuiop");
 
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = mAuth.getCurrentUser();
+                if (user != null) {
+                    Log.d(TAG, "onAuthStateChange:signed_in:" + user.getUid());
+                }
+                else
+                {
+                    Log.d(TAG,"onAuthStateChanged:signed_out");
+                }
+            }
+
+        };
 
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+       if(mAuthListener !=null)
+       {
+           mAuth.removeAuthStateListener((mAuthListener));
+       }
+    }
+
+    public void senregistrer(String email, String password)
+    {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                       Log.d(TAG, "createUserWithEmail:onComplete:"+task.isSuccessful());
+
+                        Toast.makeText(MainActivity.this, "Authentification réussi.",Toast.LENGTH_SHORT).show();
+
+                        if(!task.isSuccessful())
+                       {
+                           Toast.makeText(MainActivity.this, "Authentification failed.",Toast.LENGTH_SHORT).show();
+                        }
+
+                        // ...
+                    }
+                });
+    }
+
+*/
 
 
 
